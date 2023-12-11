@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seletor de Produtos</title>
+</head>
+<body>
+
+<label for="produtos">Escolha um Produto: </label>
+<select id="produtos" aria-label="Seletor de Produtos" onchange="mostrarDescricao()">
+  <option value="" disabled selected>Selecione um produto</option>
+  <option value="produto1">Celular</option>
+  <option value="produto2">Videogame</option>
+  <option value="produto3">Notebook</option>
+</select>
+
+<div id="descricao-produto" aria-live="atualiza">
+
+  <!-- Aqui mostra a descrição do produto escolhido -->
+
+</div>
+
+<script>
+  function mostrarDescricao() {
+    var seletor = document.getElementById('produtos');
+    var descricaoProduto = document.getElementById('descricao-produto');
+
+    // Resetar a descrição quando selecionar "Selecione um Produto"
+
+    if (seletor.value === '') {
+      descricaoProduto.innerHTML = '';
+      return;
+    }
+
+    // Adicionar a descrição do produto
+
+    switch (seletor.value) {
+      case 'produto1':
+        descricaoProduto.innerHTML = '<p>Descrição do Celular: Iphone 15.</p>';
+        break;
+      case 'produto2':
+        descricaoProduto.innerHTML = '<p>Descrição do Videogame: PlayStation 5.</p>';
+        break;
+      case 'produto3':
+        descricaoProduto.innerHTML = '<p>Descrição do Notebook: MacBook Air 13 Pro.</p>';
+        break;
+      default:
+        descricaoProduto.innerHTML = '';
+    }
+  }
+</script>
+
+</body>
+</html>
